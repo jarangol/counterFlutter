@@ -20,11 +20,10 @@ jobs:
       - run: flutter pub get #installing the plugins for the flutter project
       - run: flutter test #running flutter test
       - run: flutter build apk #building flutter apk
-      - name: Create github artifact release # disable this to save storage
-        - uses: actions/upload-artifact@v1
-          with:
-            name: release-apk
-            path: build/app/outputs/apk/release/app-release.apk
+      - uses: actions/upload-artifact@v1
+        with:
+          name: release-apk
+          path: build/app/outputs/apk/release/app-release.apk
 
   beta_apk:
     name: Upload Android Beta to Firebase App Distribution
