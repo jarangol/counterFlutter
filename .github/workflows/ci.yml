@@ -18,7 +18,6 @@ jobs:
         with:
           flutter-version: "3.3.5" #You can define the flutter version.
       - run: flutter pub get #installing the plugins for the flutter project
-      - run: flutter test #running flutter test
       - run: flutter pub global activate dlcov
       - run: dlcov -c 80 --lcov-gen="flutter test --coverage"
       - run: flutter analyze
