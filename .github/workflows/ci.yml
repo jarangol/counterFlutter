@@ -19,6 +19,9 @@ jobs:
           flutter-version: "3.3.5" #You can define the flutter version.
       - run: flutter pub get #installing the plugins for the flutter project
       - run: flutter test #running flutter test
+      - run: pub global activate dlcov
+      - run: dlcov gen-refs && flutter test --coverage && dlcov -c 80
+      - run: flutter analyze
       - run: flutter build apk #building flutter apk
       - uses: actions/upload-artifact@v1
         with:
